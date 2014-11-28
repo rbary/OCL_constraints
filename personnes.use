@@ -96,7 +96,8 @@ self.enfants -> for All(p:Personne | p.age < self.age)
 
 -- Je suis plus petit que mes parents ---------------------------------------------------------------
 context Personne inv
-self.parents -> for All(p:Personne |  )
+self.parents -> for All(p:Personne | p.age > self.age )
+-----------------------------------------------------------------------------------------------------
 context Personne inv sexesMariage:
 (self.femme -> notEmpty() implies (self.sexe = #Homme and self.femme.sexe = #Femme)) and
 (self.mari -> notEmpty() implies (self.sexe = #Femme and self.mari.sexe = #Homme))
